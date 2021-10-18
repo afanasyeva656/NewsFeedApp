@@ -4,6 +4,6 @@ import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.model.NewsMod
 
 class NewsRemoteSource(private val api: NewsApi) {
     suspend fun getNews() : NewsModel {
-        return api.getNews("bitcoin")
+        return api.getTopHeadlines()
     }
 }
