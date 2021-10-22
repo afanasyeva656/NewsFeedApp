@@ -22,7 +22,7 @@ data class ArticleModel(
     val urlToImage: String?,
 
     @SerializedName("publishedAt")
-    val publishedAt: String?,
+    val publishedAt: String,
 
     @SerializedName("content")
     val content: String?,

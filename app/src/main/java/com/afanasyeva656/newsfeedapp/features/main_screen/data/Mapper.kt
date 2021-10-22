@@ -8,5 +8,5 @@ fun ArticleModel.toDomain() = ArticleDomainModel(
     title = this.title,
     description = this.description ?: "null",
     url = this.url,
-    publishedAt = this.publishedAt ?: "null"
+    publishedAt = this.publishedAt
 )

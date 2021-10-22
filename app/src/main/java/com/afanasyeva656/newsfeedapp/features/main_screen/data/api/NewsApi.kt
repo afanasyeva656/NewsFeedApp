@@ -10,5 +10,5 @@ interface NewsApi {
         @Query("apiKey") apiKey: String = "66147346f2a941369d369f9f9eeff6d9",
         @Query("country") country: String = "ru"
 //        @Query("q") keyWords: String?
-        ) : NewsModel
+    ): NewsModel
 }

@@ -1,6 +1,6 @@
 package com.afanasyeva656.newsfeedapp.features.main_screen.domain.model
 
-data class ArticleDomainModel (
+data class ArticleDomainModel(
     val author: String,
     val title: String,
     val description: String,
