@@ -14,7 +14,9 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainScreenFragment: Fragment() {
     private val viewModel by viewModel<MainScreenViewModel>()
-    private val adapter by lazy { ArticlesAdapter(listOf())}
+    private val adapter by lazy { ArticlesAdapter(listOf()) {
+        viewModel.processUiEvent(UIEvent.OnArticleClick(it))
+    } }
 
     override fun onCreateView(
         inflater: LayoutInflater,

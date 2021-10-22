@@ -15,7 +15,7 @@ data class ViewState(
     )
 
 sealed class UIEvent() : Event {
-    class OnArticleClick: UIEvent()
+    data class OnArticleClick(val articleDomainModel: ArticleDomainModel): UIEvent()
 }
 
 sealed class DataEvent() : Event {

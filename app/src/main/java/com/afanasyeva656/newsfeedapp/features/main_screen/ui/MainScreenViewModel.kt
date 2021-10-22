@@ -5,11 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.afanasyeva656.newsfeedapp.base.BaseViewModel
 import com.afanasyeva656.newsfeedapp.base.Event
+import com.afanasyeva656.newsfeedapp.features.bookmarks_screen.domain.BookmarkInteractor
 import com.afanasyeva656.newsfeedapp.features.main_screen.domain.NewsInteractor
 import kotlinx.coroutines.launch
 
 class MainScreenViewModel(
-    private val newsInteractor: NewsInteractor
+    private val newsInteractor: NewsInteractor,
+    private val bookmarkInteractor: BookmarkInteractor
 ) : BaseViewModel<ViewState>() {
     init {
         processDataEvent(DataEvent.OnLoadData)
@@ -22,6 +24,7 @@ class MainScreenViewModel(
     override suspend fun reduce(event: Event, previousState: ViewState): ViewState? {
         when (event) {
             is UIEvent.OnArticleClick -> {
+                bookmarkInteractor.create(event.articleDomainModel)
             }
             is DataEvent.OnLoadData -> {
                 newsInteractor.getNews().fold(

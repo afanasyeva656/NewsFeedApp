@@ -1,5 +1,6 @@
 package com.afanasyeva656.newsfeedapp.features.main_screen.di
 
+import com.afanasyeva656.newsfeedapp.features.bookmarks_screen.domain.BookmarkInteractor
 import com.afanasyeva656.newsfeedapp.features.main_screen.ui.MainScreenViewModel
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsApi
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsRemoteSource
@@ -45,6 +46,6 @@ val mainScreenModule = module {
     }
 
     viewModel {
-        MainScreenViewModel(get<NewsInteractor>())
+        MainScreenViewModel(get<NewsInteractor>(), get<BookmarkInteractor>())
     }
 }

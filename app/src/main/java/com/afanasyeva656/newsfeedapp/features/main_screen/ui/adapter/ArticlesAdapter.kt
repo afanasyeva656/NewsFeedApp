@@ -9,7 +9,10 @@ import com.afanasyeva656.newsfeedapp.R
 import com.afanasyeva656.newsfeedapp.features.main_screen.domain.model.ArticleDomainModel
 import okhttp3.internal.notify
 
-class ArticlesAdapter(private var articleModels: List<ArticleDomainModel>) :
+class ArticlesAdapter(
+    private var articleModels: List<ArticleDomainModel>,
+    private val onItemClick: (articleModel: ArticleDomainModel) -> Unit
+) :
     RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView
@@ -26,6 +29,7 @@ class ArticlesAdapter(private var articleModels: List<ArticleDomainModel>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.title.text = articleModels[position].title
+        holder.itemView.setOnClickListener { onItemClick(articleModels[position]) }
     }
 
     override fun getItemCount(): Int {
