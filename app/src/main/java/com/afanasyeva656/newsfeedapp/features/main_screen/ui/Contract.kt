@@ -10,15 +10,16 @@ import com.afanasyeva656.newsfeedapp.features.main_screen.domain.model.ArticleDo
 
 data class ViewState(
     val articleList: List<ArticleDomainModel>,
-    val errorMessage: String?
+    val errorMessage: String?,
+    val isLoading: Boolean
     )
 
 sealed class UIEvent() : Event {
-    object GetCurrentNews: UIEvent()
+    class OnArticleClick: UIEvent()
 }
 
 sealed class DataEvent() : Event {
-    // Симв. о том, что происходит (как команда)
+    // Симв. о том, что происходит (команда)
     object OnLoadData: DataEvent()
     data class SuccessNewsRequest(val articleList: List<ArticleDomainModel>) : DataEvent()
     data class ErrorNewsRequest(val error: String) : DataEvent()
