@@ -1,11 +1,12 @@
 package com.afanasyeva656.newsfeedapp.features.main_screen.di
 
-import com.afanasyeva656.newsfeedapp.features.main_screen.MainScreenViewModel
+import com.afanasyeva656.newsfeedapp.features.main_screen.ui.MainScreenViewModel
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsApi
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsRemoteSource
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsRepository
 import com.afanasyeva656.newsfeedapp.features.main_screen.data.api.NewsRepositoryImpl
 import com.afanasyeva656.newsfeedapp.features.main_screen.domain.NewsInteractor
+import com.afanasyeva656.newsfeedapp.features.main_screen.ui.NewsFeedScreenViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -46,5 +47,9 @@ val mainScreenModule = module {
 
     viewModel {
         MainScreenViewModel()
+    }
+
+    viewModel {
+        NewsFeedScreenViewModel(get<NewsInteractor>())
     }
 }

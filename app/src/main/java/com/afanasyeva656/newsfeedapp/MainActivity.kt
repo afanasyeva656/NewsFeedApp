@@ -2,9 +2,7 @@ package com.afanasyeva656.newsfeedapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.TextView
-import com.afanasyeva656.newsfeedapp.features.main_screen.MainScreenFragment
-import com.afanasyeva656.newsfeedapp.features.main_screen.MainScreenViewModel
+import com.afanasyeva656.newsfeedapp.features.main_screen.ui.MainScreenFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

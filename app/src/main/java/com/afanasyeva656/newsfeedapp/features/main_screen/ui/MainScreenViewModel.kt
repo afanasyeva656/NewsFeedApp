@@ -1,4 +1,4 @@
-package com.afanasyeva656.newsfeedapp.features.main_screen
+package com.afanasyeva656.newsfeedapp.features.main_screen.ui
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
