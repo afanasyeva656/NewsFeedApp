@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="title_text_style">
+        <item name="android:layout_marginTop">@dimen/title_margin_text</item>
+        <item name="android:layout_marginBottom">@dimen/title_margin_text</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="description_text_style">
+        <item name="android:layout_marginTop">@dimen/title_margin_text</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="publish_at_text_style">
+        <item name="android:layout_marginTop">@dimen/title_margin_text</item>
+        <item name="android:fontFamily">@font/roboto_light</item>
+        <item name="android:textSize">8dp</item>
+    </style>
+</resources>

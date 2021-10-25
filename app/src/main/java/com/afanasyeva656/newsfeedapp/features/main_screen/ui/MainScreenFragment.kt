@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.afanasyeva656.newsfeedapp.R
+import com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter.ArticleItemDecoration
 import com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter.ArticlesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -31,6 +32,7 @@ class MainScreenFragment: Fragment() {
         val recyclerView = view.findViewById<RecyclerView>(R.id.rvActicles)
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.addItemDecoration(ArticleItemDecoration())
         viewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
 
     }

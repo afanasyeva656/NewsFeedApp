@@ -1,5 +1,6 @@
 package com.afanasyeva656.newsfeedapp.features.main_screen.data.api
 
+import com.afanasyeva656.newsfeedapp.features.main_screen.data.toDomain
 import com.afanasyeva656.newsfeedapp.features.main_screen.domain.model.ArticleDomainModel
 
 class NewsRepositoryImpl(private val source: NewsRemoteSource) : NewsRepository {

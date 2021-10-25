@@ -12,8 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // commit обязателен
-
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
         bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
@@ -26,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setFragment(fragment: Fragment) {
+        // commit обязателен
         supportFragmentManager.beginTransaction()
             .replace(R.id.container, fragment).commit()
     }

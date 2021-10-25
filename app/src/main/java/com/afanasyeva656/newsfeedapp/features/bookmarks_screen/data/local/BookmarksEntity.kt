@@ -16,6 +16,8 @@ data class BookmarksEntity(
     val title: String,
     @ColumnInfo(name = "description")
     val description: String,
+    @ColumnInfo(name = "urlToImage")
+    val urlToImage: String,
     @ColumnInfo(name = "publishedAt")
     val publishedAt: String
 ) {
