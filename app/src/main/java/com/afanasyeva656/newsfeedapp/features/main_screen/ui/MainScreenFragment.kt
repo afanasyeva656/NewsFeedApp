@@ -13,17 +13,20 @@ import com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter.ArticleItem
 import com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter.ArticlesAdapter
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class MainScreenFragment: Fragment() {
+class MainScreenFragment : Fragment() {
     private val viewModel by viewModel<MainScreenViewModel>()
-    private val adapter by lazy { ArticlesAdapter(listOf()) {
-        viewModel.processUiEvent(UIEvent.OnArticleClick(it))
-    } }
+    private val adapter by lazy {
+        ArticlesAdapter(listOf()) {
+            viewModel.processUiEvent(UIEvent.OnSaveArticleClicked(it))
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         return inflater.inflate(R.layout.fragment_main_screen, container, false)
     }
 
@@ -34,7 +37,6 @@ class MainScreenFragment: Fragment() {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.addItemDecoration(ArticleItemDecoration())
         viewModel.viewState.observe(viewLifecycleOwner, Observer(::render))
-
     }
 
     private fun render(viewState: ViewState) {

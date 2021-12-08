@@ -11,11 +11,15 @@ import com.afanasyeva656.newsfeedapp.features.main_screen.domain.model.ArticleDo
 data class ViewState(
     val articleList: List<ArticleDomainModel>,
     val errorMessage: String?,
-    val isLoading: Boolean
+    val isLoading: Boolean,
+    val isSearchVisible: Boolean,
+    val searchText: String
     )
 
 sealed class UIEvent() : Event {
-    data class OnArticleClick(val articleDomainModel: ArticleDomainModel): UIEvent()
+    data class OnSaveArticleClicked(val articleDomainModel: ArticleDomainModel): UIEvent()
+    data class OnArticleClicked(val articleDomainModel: ArticleDomainModel): UIEvent()
+    object OnSearchClick: UIEvent()
 }
 
 sealed class DataEvent() : Event {
