@@ -1,4 +1,4 @@
-package com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter
+package com.afanasyeva656.newsfeedapp.features.bookmarks_screen.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.afanasyeva656.newsfeedapp.R
 import com.afanasyeva656.newsfeedapp.features.main_screen.domain.model.ArticleDomainModel
+import com.afanasyeva656.newsfeedapp.features.main_screen.ui.adapter.ArticlesAdapter
 import com.bumptech.glide.Glide
 
-class ArticlesAdapter(
-    private var articleModels: List<ArticleDomainModel>,
-    private val onItemClick: (articleModel: ArticleDomainModel) -> Unit
+class BookmarksAdapter(
+    private var bookmarkModels: List<ArticleDomainModel>
 ) :
-    RecyclerView.Adapter<ArticlesAdapter.ViewHolder>() {
+    RecyclerView.Adapter<BookmarksAdapter.ViewHolder>() {
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView
         val description: TextView
@@ -35,25 +35,23 @@ class ArticlesAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = articleModels[position].title
-        holder.description.text = articleModels[position].description
-        holder.publishedAt.text = articleModels[position].publishedAt
+        holder.title.text = bookmarkModels[position].title
+        holder.description.text = bookmarkModels[position].description
+        holder.publishedAt.text = bookmarkModels[position].publishedAt
         Glide
             .with(holder.itemView)
-            .load(articleModels[position].urlToImage)
+            .load(bookmarkModels[position].urlToImage)
             .placeholder(R.drawable.ic_baseline_cloud_download_24)
             .error(R.drawable.ic_baseline_error_24)
             .into(holder.imageView)
-
-        holder.itemView.setOnClickListener { onItemClick(articleModels[position]) }
     }
 
     override fun getItemCount(): Int {
-        return articleModels.size
+        return bookmarkModels.size
     }
 
     fun updateArticles(updatedArticleModels: List<ArticleDomainModel>) {
-        articleModels = updatedArticleModels
+        bookmarkModels = updatedArticleModels
         notifyDataSetChanged()
     }
 }
